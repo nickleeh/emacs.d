@@ -1,0 +1,118 @@
+cd ..
+ls
+rm -rf el-get/
+cd
+sau
+sau
+sudo aptitude update
+sudo aptitude safe-update
+sudo aptitude safe-upgrade
+aps xautolock
+aptitude xautolock
+aptitude search xautolock
+sudo aptitude install xautolock
+sudo apt-get install libnotify-bin
+xautolock --help
+cd .emacs.d/el-get/
+ls
+ll
+ls -a
+xautolock -l slock
+sudo aptitude show mtpfs
+sudo apt-get install mtpfs    
+alias aps aptitude search '$*'
+aps mtpfs
+cd
+cd -
+git version
+git init
+ls
+git config --list
+git config user.email nickleeh@hotmail.com
+git config --list
+git config --global user.email nickleeh@hotmail.com
+git config --list
+git config -l
+ls el-get/
+git status
+git add -A
+git status
+git version
+git add -u
+git status
+git add -A .
+git status
+ls
+ls -a
+rm -r .git
+git status
+git add -A .
+git status
+git add -u .
+git status
+git add -a el-get/
+git add -A el-get/
+git status
+git add el-get/
+git status
+git add el-get/s
+git status
+git -v
+git --version
+mount -t vfat /dev/sda1 ~/usb_disk/
+sudo mount -t vfat /dev/sda1 ~/usb_disk/
+sudo mount -t vfat /dev/sdb1 ~/usb_disk/
+ls ~/usb_disk/
+mount.ntfs /dev/sdb1 ~/usb_disk/
+sudo mount.ntfs /dev/sdb1 ~/usb_disk/
+ls ~/usb_disk/
+git add .
+git status
+ls el-get/ace-jump-mode/
+git rm --cached 
+git rm --cached .
+git rm --cached -r .
+git rm --cached -rf .
+ls -a
+rm -rf .git
+ls -a
+ls -a
+git init
+git add -A .
+git status
+git add -u .
+git add -A .
+git status
+ls .git/info/exclude 
+cat !
+cat cd ..
+cat .git/info/exclude 
+cd .emacs.d.bak.20141226/
+cd ../.emacs.d/
+ls
+git status
+git add el-get/ace-jump-mode/*
+sudo apt-get autoclean
+sudo apt-get install preload
+date | md5sum
+date | md5sum | count
+date | md5sum | count -n
+date | md5sum | count -s
+count -h
+count --help
+date | md5sum | wc
+date | md5sum | wc -l
+date | md5sum | wc -n
+wc --help
+date | md5sum | wc -m
+date | md5sum
+sudo apt-get install fslint
+sudo iwlist wlan0 scan | grep \(Channel
+sudo iwlist wlan0 scan | grep \(Channel
+sudo iwlist wlan0 scan 
+ps aux
+ps aux | grep lin
+fslint --help
+fslint
+aps fslint
+sudo reboot
