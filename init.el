@@ -11,8 +11,13 @@
 ;;; Built-in package tool (add melpa-stable):
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
+
+;; Auto install these packages in new Emacs setup: 
+(setq my-package-list '(haskell-mode))
+(mapc 'package-install my-package-list)
+
 
 ;;; el-get:
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
