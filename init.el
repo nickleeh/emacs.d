@@ -99,6 +99,11 @@
 (global-set-key "\M-Z" 'zap-to-char) ; Map M-Z (uppercase) to zap-to-char
 
 
+;; keyfreq:
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 ;;; Window, theme, and appearance:
 ;; Monokai-theme
 ;; https://github.com/oneKelvinSmith/monokai-emacs
