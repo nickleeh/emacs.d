@@ -90,7 +90,8 @@
 
 
 ;;; key-bindings
-(global-set-key [?\S- ] 'set-mark-command) ; Use Shift-Space to set mark
+(global-set-key [?\S- ] 'set-mark-command)	 ; Shift-Space to set mark
+(global-set-key (kbd "C-x g") 'magit-status)	 ; C-x g to launch Magit
 
 ;; Remap M-z to zap-up-to-char:
 (require 'misc)
