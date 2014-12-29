@@ -3,7 +3,7 @@
 auto-save-list
 el-get
 elpa
-ac-comphist.dat
-eshell/history
-eshell/lastdir
-projectile.cache
+/projectile.cache
+/eshell/lastdir
+/eshell/history
+/ac-comphist.dat
