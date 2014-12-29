@@ -9,15 +9,6 @@
 
 ;;; Package Management
 ;;; Built-in package tool (add melpa-stable):
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize)
-
-;; Auto install these packages in new Emacs setup: 
-(setq my-package-list '(haskell-mode monokai-theme))
-(mapc 'package-install my-package-list)
-
 
 ;;; el-get:
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -39,10 +30,21 @@
 
 ;; List of package installed by el-get:
 (setq my-packages
-      '(ace-jump-mode ace-window auto-complete cider cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit monokai-theme openwith package paradox paredit pkg-info popup projectile queue s yasnippet))
+      '(ace-jump-mode ace-window auto-complete cider cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit monokai-theme package paradox paredit pkg-info popup projectile queue s yasnippet))
 
 ;; Auto install these packages on a new Emacs setup:
 (el-get 'sync my-packages)
+
+
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(package-initialize)
+
+;; Auto install these packages in new Emacs setup: 
+(setq my-package-list '(haskell-mode monokai-theme))
+(mapc 'package-install my-package-list)
+
 
 
 ;;; Load separate config files:
@@ -52,6 +54,39 @@
 (load "~/.emacs.d/config/org-mode-c.el")
 (load "~/.emacs.d/config/helm-c.el")
 (load "~/.emacs.d/config/projectile-c.el")
+
+
+
+(pdf-tools-install)
+
+
+;;; Set default open program:
+;; Openwith
+(require 'openwith)
+(openwith-mode t)
+(setq openwith-associations
+      (list (list (openwith-make-extension-regexp '("pdf"))
+                  "zathura" '(file))
+            (list (openwith-make-extension-regexp '("flac" "mp3" "wav"))
+                  "vlc" '(file))
+            (list (openwith-make-extension-regexp '("avi" "flv" "mov" "mp4"
+                                                    "mpeg" "mpg" "ogg" "rmvb" "wmv"))
+                  "smplayer" '(file))
+            (list (openwith-make-extension-regexp '("bmp" "jpeg" "jpg" "png"))
+                  "ristretto" '(file))
+            (list (openwith-make-extension-regexp '("doc" "docx" "odt"))
+                  "libreoffice" '("--writer" file))
+            (list (openwith-make-extension-regexp '("ods" "xls" "xlsx"))
+                  "libreoffice" '("--calc" file))
+            (list (openwith-make-extension-regexp '("odp" "pps" "ppt" "pptx"))
+                  "libreoffice" '("--impress" file))
+            ))
+
+(setq large-file-warning-threshold 500000000) ; set the value that will trigger the warning. Here, 500MB
+
+;; Helm
+(setq helm-external-programs-associations (quote (("rmvb" . "smplayer") ("mp4" . "smplayer"))))
+
 
 
 ;;; key-bindings
@@ -73,9 +108,6 @@
 (setq default-frame-alist '((font . "Menlo-12"))) ; set default font for emacs --daemon / emacsclient
 
 
-
-
-
 (menu-bar-mode -1)		; turn on/off menu bar
 (tool-bar-mode -1)		; turn on/off toolbar
 (toggle-scroll-bar nil)		; turn on/off scroll bars
@@ -86,24 +118,24 @@
                     :background "dark violet"
                     :foreground "black")
 
+;; Dired 
+(setq dired-listing-switches "-laGh1v --group-directories-first") ; display settings
+
 
 ;;; Miscellaneous:
 ;; Sentence (single space)
 (setq sentence-end-double-space nil)
 
+;; ispell:
+;; use apsell as ispell backend  
+;;(setq-default ispell-program-name "aspell")  
+;; use American English as ispell default dictionary  
+(ispell-change-dictionary "american" t) 
+
 
 ;;; Ace-Window:
 (global-set-key (kbd "M-P") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-
-
-;;; Set default open program:
-;;(add-to-list 'load-path "/path/to/downloaded/openwith.el")
-(require 'openwith)
-(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
-(setq openwith-associations '(("\\.mov\\'" "smplayer" (file))))
-(openwith-mode t)
-;;It sets file handler that will work from both dired and find-file.
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
