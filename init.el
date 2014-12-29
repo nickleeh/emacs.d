@@ -15,7 +15,7 @@
 (package-initialize)
 
 ;; Auto install these packages in new Emacs setup: 
-(setq my-package-list '(haskell-mode))
+(setq my-package-list '(haskell-mode monokai-theme))
 (mapc 'package-install my-package-list)
 
 
@@ -66,11 +66,14 @@
 ;;; Window, theme, and appearance:
 ;; Monokai-theme
 ;; https://github.com/oneKelvinSmith/monokai-emacs
-(add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/monokai-theme/")
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/monokai-theme/")
 (load-theme 'monokai t)
 
 ;; Font
 (setq default-frame-alist '((font . "Menlo-12"))) ; set default font for emacs --daemon / emacsclient
+
+
+
 
 
 (menu-bar-mode -1)		; turn on/off menu bar
