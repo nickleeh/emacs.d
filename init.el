@@ -10,6 +10,18 @@
 ;;; Package Management
 ;;; Built-in package tool (add melpa-stable):
 
+
+;; package.el
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(package-initialize)
+
+;; Auto install these packages in new Emacs setup: 
+(setq my-package-list '(haskell-mode monokai-theme))
+(mapc 'package-install my-package-list)
+
+
 ;;; el-get:
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -26,24 +38,14 @@
 ;; M-x ielm to eval this code to get a list of installed packages:
 ;; `(setq my-packages
 ;;        ',(mapcar #'el-get-as-symbol
-;; 		 (el-get-list-package-names-with-status "installed")))
+;;		 (el-get-list-package-names-with-status "installed")))
 
 ;; List of package installed by el-get:
-(setq my-packages
-      '(ace-jump-mode ace-window auto-complete cider cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit monokai-theme package paradox paredit pkg-info popup projectile queue s yasnippet))
+ (setq my-packages
+       '(ace-jump-mode ace-window auto-complete cider cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit monokai-theme package paradox paredit pkg-info popup projectile queue s yasnippet))
 
-;; Auto install these packages on a new Emacs setup:
+ ;; Auto install these packages on a new Emacs setup:
 (el-get 'sync my-packages)
-
-
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize)
-
-;; Auto install these packages in new Emacs setup: 
-(setq my-package-list '(haskell-mode monokai-theme))
-(mapc 'package-install my-package-list)
 
 
 
@@ -126,6 +128,10 @@
 
 ;; Dired 
 (setq dired-listing-switches "-laGh1v --group-directories-first") ; display settings
+
+;; Dired+
+(require 'dired+)
+(setq  global-dired-hide-details-mode 0) ; show details
 
 
 ;;; Miscellaneous:
