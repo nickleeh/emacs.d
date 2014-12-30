@@ -18,7 +18,7 @@
 (package-initialize)
 
 ;; Auto install these packages in new Emacs setup: 
-(setq my-package-list '(haskell-mode monokai-theme))
+(setq my-package-list '(haskell-mode monokai-theme cider))
 (mapc 'package-install my-package-list)
 
 
@@ -42,7 +42,7 @@
 
 ;; List of package installed by el-get:
  (setq my-packages
-       '(ace-jump-mode ace-window auto-complete cider cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit monokai-theme package paradox paredit pkg-info popup projectile queue s yasnippet))
+       '(ace-jump-mode ace-window auto-complete cl-lib clojure-mode clojure-snippets dash el-get epl f flycheck flyspell fuzzy git-auto-commit-mode git-commit-mode git-modes helm ispell-multi json let-alist magit package paradox paredit pkg-info popup projectile s yasnippet))
 
  ;; Auto install these packages on a new Emacs setup:
 (el-get 'sync my-packages)
