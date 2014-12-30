@@ -1,1 +1,5 @@
+alias sai sudo apt-get install
+alias sau sudo apt-get update
 alias aps aptitude search $*
+alias sar sudo aptitude remove
+alias sasu sudo aptitude safe-upgrade
