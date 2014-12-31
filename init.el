@@ -52,10 +52,13 @@
 ;;; Load separate config files:
 (load "~/.emacs.d/config/ace-jump-mode.el")
 (load "~/.emacs.d/config/eshell.el")
-(load "~/.emacs.d/config/clojure.el")
 (load "~/.emacs.d/config/org-mode-c.el")
 (load "~/.emacs.d/config/helm-c.el")
 (load "~/.emacs.d/config/projectile-c.el")
+
+;; Programming language specific:
+(load "~/.emacs.d/config/clojure.el")
+(load "~/.emacs.d/config/golang-c.el")
 
 
 
