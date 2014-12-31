@@ -1,7 +1,7 @@
 ;;(require 'use-package)
 
 
-;; (use-packge ace-jump-mode
+;; (use-package ace-jump-mode
 ;; 	    :ensure t
 ;; 	    :disabled t
 ;; 	    :load-path "~/.emacs.d/el-get/ace-jump-mode/"
