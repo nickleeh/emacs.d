@@ -19,11 +19,14 @@
 			 ("melpa-stable" . "http://stable.melpa.org/packages/")
 ;;			 ("melpa" . "http://melpa.milkbox.net/packages/")
 			 ))
+;; elpy
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (package-initialize)
 
 ;; Auto install these packages in new Emacs setup: 
-(setq my-package-list '(haskell-mode monokai-theme cider ace-jump-mode helm
+(setq my-package-list '( monokai-theme cider ace-jump-mode helm
 				     projectile helm-projectile multiple-cursors
 				     paredit dired+ magit ace-window))
 (mapc 'package-install my-package-list)
@@ -65,7 +68,7 @@
 ;; Programming language specific:
 (load "~/.emacs.d/config/clojure.el")
 ;; (load "~/.emacs.d/config/golang-c.el")
-
+(load "~/.emacs.d/config/python-c.el")
 
 ;; (pdf-tools-install)
 
@@ -154,6 +157,9 @@
 (toggle-scroll-bar nil)		; turn on/off scroll bars
 (setq inhibit-startup-screen t) ;  make Emacs switch to a *scratch* buffer right away.
 
+;; set selection color
+(set-face-attribute 'region nil :background "dark orange")
+
 ;; Set helm selection color:
 (set-face-attribute 'helm-selection nil 
                     :background "dark violet"
@@ -199,7 +205,8 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
-
+;; yasnippet
+;; (setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide '.emacs)
 ;;; .emacs ends here
