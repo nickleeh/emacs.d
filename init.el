@@ -11,11 +11,27 @@
 ;;; Built-in package tool (add melpa-stable):
 
 
+;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/"))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+  (require 'el-get))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+
+
 ;; package.el
 (require 'package)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                         ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa-stable" . "http://stable.melpa.org/packages/")
 ;;			 ("melpa" . "http://melpa.milkbox.net/packages/")
 			 ))
@@ -30,6 +46,21 @@
 				     projectile helm-projectile multiple-cursors
 				     paredit dired+ magit ace-window))
 (mapc 'package-install my-package-list)
+
+
+;; ;;===============================
+;; (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+;; (unless (require 'el-get nil 'noerror)
+;;   (with-current-buffer
+;;       (url-retrieve-synchronously
+;;        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el"
+;; )
+;;     (goto-char (point-max))
+;;     (eval-print-last-sexp)))
+
+;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+;; (el-get 'sync)
 
 
 ;; ;;; el-get:
@@ -56,6 +87,7 @@
 
 ;;  ;; Auto install these packages on a new Emacs setup:
 ;; (el-get 'sync my-packages)
+
 
 
 ;;; Load separate config files:
@@ -112,14 +144,15 @@
 
 
 ;; Set the menu/apps key to do emacs's M-x, if on Windows
-(cond
- ((string-equal system-type "windows-nt")
-  (global-set-key (kbd "<apps>") 'execute-extended-command))
- ((string-equal system-type "darwin")   ; Mac
-  t )
- ((string-equal system-type "gnu/linux")
-  t))
+;; (cond
+;;  ((string-equal system-type "windows-nt")
+;;   (global-set-key (kbd "<apps>") 'execute-extended-command))
+;;  ((string-equal system-type "darwin")   ; Mac
+;;   t )
+;;  ((string-equal system-type "gnu/linux")
+;;   t))
 
+(global-set-key (kbd "<apps>") 'execute-extended-command)
 
 ;; ;; keyfreq:
 ;; (require 'keyfreq)
@@ -207,6 +240,9 @@
 
 ;; yasnippet
 ;; (setq yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/")
+
+(setq py-load-pymacs-p  'nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide '.emacs)
 ;;; .emacs ends here
